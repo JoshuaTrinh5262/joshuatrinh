@@ -107,7 +107,7 @@ footer {
 }
 
 .social-icons a.github:hover {
-  color: #000000;
+  color: #fff;
 }
 
 .social-icons a.twitch:hover {
@@ -115,5 +115,5 @@ footer {
 }
 
 .social-icons a.steam:hover {
-  color: #000;
+  color: #fff;
 }
