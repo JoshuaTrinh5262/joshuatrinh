@@ -98,9 +98,21 @@ footer {
 }
 
 .social-icons a.youtube:hover {
-  color: #FF0000; /* YouTube red */
+  color: #FF0000;
 }
 
 .social-icons a.twitter:hover {
-  color: #1DA1F2; /* Twitter blue */
+  color: #1DA1F2;
+}
+
+.social-icons a.github:hover {
+  color: #000000;
+}
+
+.social-icons a.twitch:hover {
+  color: #9146FF;
+}
+
+.social-icons a.steam:hover {
+  color: #000;
 }
