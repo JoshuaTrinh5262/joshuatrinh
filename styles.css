@@ -87,7 +87,8 @@ footer {
 .social-icons {
   display: flex;
   gap: 10px;
-  justify-content: center
+  justify-content: center;
+  padding-top: 10px;
 }
 
 .social-icons a {
