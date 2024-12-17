@@ -128,8 +128,13 @@ footer {
   background-color: #333;
 }
 
-.image {
+.image-container .image {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 10px;
+}
+
+.image-container .image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
