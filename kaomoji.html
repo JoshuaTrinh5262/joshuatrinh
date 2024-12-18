@@ -7,14 +7,58 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="styles.css">
   <script src="include.js" defer></script>
+    <style>
+    .kaomoji-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .kaomoji-item {
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .string-item:hover {
+      background-color: #2980b9;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 16px;
+      color: green;
+    }
+  </style>
 </head>
 <body>
   <div id="header"></div>
   <main>
     <div class="container">
       <h1>Kaomoji</h1>
+      <p>...</p>
+    </div>
+    <div class="container">
+        <div class="message" id="message"></div>
+        <div class="kaomoji-list">
+          <div class="kaomoji-item" onclick="copyToClipboard('(* ^ ω ^)')">(* ^ ω ^)</div>
+          <div class="kaomoji-item" onclick="copyToClipboard('ヽ(・∀・)ﾉ')">ヽ(・∀・)ﾉ</div>
+        </div>
     </div>
   </main>
   <div id="footer"></div>
+
+  <script>
+    function copyToClipboard(str) {
+      navigator.clipboard.writeText(str).then(() => {
+        const message = document.getElementById('message');
+        message.textContent = `${str} copied to clipboard!`;
+        setTimeout(() => message.textContent = '', 2000);
+      });
+    }
+  </script>
 </body>
 </html>
