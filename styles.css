@@ -13,13 +13,13 @@ body {
     min-height: 100vh;
     margin: 0;
     background-color: #1a1a1a; /* Dark background */
-    color: #f3f3f3;
+    color: #fff;
 }
 
 /* Header styling */
 header {
     width: 100%;
-    padding: 10px 20px;
+    padding: 10px;
     background-color: #990000; /* Red background */
     color: #fff;
     display: flex;
