@@ -97,11 +97,11 @@ header nav a:hover {
     background-color: #555;
   }
 
-  .nav-links {
+  .navbar .nav-links {
       display: none; /* Hide menu by default */
   }
 
-  .nav-links.active {
+  .navbar .nav-links.active {
       display: flex; /* Show menu when toggled */
       flex-direction: column;
       background-color: #444;
@@ -114,7 +114,7 @@ header nav a:hover {
       padding: 10px;
   }
 
-  .nav-links a {
+  .navbar .nav-links a {
       padding: 10px;
       text-align: center;
   }
