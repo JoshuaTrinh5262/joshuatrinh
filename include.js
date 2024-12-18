@@ -10,17 +10,22 @@ async function includeHTML(id, file) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  includeHTML("header", "header.html");
-  includeHTML("footer", "footer.html");
+document.addEventListener("DOMContentLoaded", async () => {
+  await includeHTML("header", "header.html");
+  await includeHTML("footer", "footer.html");
 
+  initializeMenuToggle();
+});
+function initializeMenuToggle() {
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
 
-  if(menuToggle) {
-      menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-        console.log("Menu toggle clicked!");
-  });
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      console.log("Menu toggle clicked!");
+    });
+  } else {
+    console.warn(".menu-toggle or .nav-links not found in the DOM");
   }
-});
+}
