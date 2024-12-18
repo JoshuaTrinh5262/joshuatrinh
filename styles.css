@@ -42,6 +42,83 @@ header nav a:hover {
     text-decoration: underline;
 }
 
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: white;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar .nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  padding: 5px 10px;
+}
+
+.navbar .nav-links a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+      display: block;
+      color: white;
+      border: 1px solid #fff;
+      border-radius: 8px;
+      padding: 15px;
+      transition: border-color 0.3s ease;
+  }
+
+  .menu-toggle:hover {
+    background-color: #555;
+  }
+
+  .nav-links {
+      display: none; /* Hide menu by default */
+      flex-direction: column;
+      background-color: #444;
+      position: absolute;
+      top: 50px;
+      right: 20px;
+      width: 150px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      padding: 10px;
+  }
+
+  .nav-links.active {
+      display: flex; /* Show menu when toggled */
+  }
+
+  .nav-links a {
+      padding: 10px;
+      text-align: center;
+  }
+}
 /* Container styling */
 .container {
     text-align: center;
