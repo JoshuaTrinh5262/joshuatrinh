@@ -1,6 +1,5 @@
 /* Resetting styles for consistency */
 * {
-    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -89,7 +88,7 @@ header nav a:hover {
       color: white;
       border: 1px solid #fff;
       border-radius: 8px;
-      padding: 15px;
+      padding: 10px;
       transition: border-color 0.3s ease;
   }
 
