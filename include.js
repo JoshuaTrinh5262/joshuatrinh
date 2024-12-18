@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if(menuToggle) {
       menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+        navLinks.classList.toggle("active");
+        console.log("Menu toggle clicked!");
   });
   }
 });
