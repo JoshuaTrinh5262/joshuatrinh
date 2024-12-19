@@ -84,7 +84,7 @@
 
       data.basic.forEach(({ katakana, romaji }) => {
         const charDiv = document.createElement('div');
-        charDiv.textContent = `${Katakana}`;
+        charDiv.textContent = `${katakana}`;
         charDiv.style.cursor = 'pointer';
 
         charDiv.onclick = () => copyToClipboard(katakana);
