@@ -53,7 +53,7 @@
         <div class="item" onclick="copyToClipboard('お')">お</div>
       </div>
     </div>
-    <div id="hiragana-container"></div>
+    <div class="container" id="hiragana-container"></div>
     <div class="container">
       <h1>Katakana</h1>
       <div class="message" id="message"></div>
@@ -87,7 +87,7 @@
         charDiv.style.cursor = 'pointer';
 
         charDiv.onclick = () => copyToClipboard(hiragana);
-
+        charDiv.classList.add('item');
         section.appendChild(charDiv);
       });
       container.appendChild(section);
