@@ -94,7 +94,7 @@
       const section = document.createElement('div');
       section.classList.add('list');
 
-      data.basic.forEach(({ hiragana, romaji }) => {
+      data.basic.forEach(({ katakana, romaji }) => {
         const charDiv = document.createElement('div');
         charDiv.textContent = `${hiragana}`;
         charDiv.style.cursor = 'pointer';
