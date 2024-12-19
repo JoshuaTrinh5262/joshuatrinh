@@ -53,6 +53,7 @@
         <div class="item" onclick="copyToClipboard('お')">お</div>
       </div>
     </div>
+    <div id="hiragana-container"></div>
     <div class="container">
       <h1>Katakana</h1>
       <div class="message" id="message"></div>
@@ -69,6 +70,29 @@
   <div id="footer"></div>
 
   <script>
+    async function loadHiragana() {
+      const response = await fetch('hiragana.json');
+      const data = await response.json();
+
+      const container = document.getElementById('hiragana-container');
+
+      const section = document.createElement('div');
+      const title = document.createElement('h1');
+      title.textContent = "Basic Hiragana";
+      section.appendChild(title);
+
+      data.basic.forEach(({ hiragana, romaji }) => {
+        const charDiv = document.createElement('div');
+        charDiv.textContent = `${hiragana} (${romaji})`;
+        charDiv.style.cursor = 'pointer';
+
+        charDiv.onclick = () => copyToClipboard(hiragana);
+
+        section.appendChild(charDiv);
+      });
+      container.appendChild(section);
+    }
+
     function copyToClipboard(str) {
       navigator.clipboard.writeText(str).then(() => {
         const message = document.getElementById('message');
