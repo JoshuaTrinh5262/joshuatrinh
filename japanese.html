@@ -71,7 +71,7 @@
 
   <script>
     async function loadHiragana() {
-      const response = await fetch('hiragana.json');
+      const response = await fetch('public/json/hiragana.json');
       const data = await response.json();
 
       const container = document.getElementById('hiragana-container');
