@@ -75,16 +75,14 @@
       const data = await response.json();
 
       const container = document.getElementById('hiragana-container');
-
+      const title = document.createElement('h1');
+      title.textContent = "Hiragana";
       const section = document.createElement('div');
       section.classList.add('list');
-      const title = document.createElement('h1');
-      title.textContent = "Basic Hiragana";
-      section.appendChild(title);
 
       data.basic.forEach(({ hiragana, romaji }) => {
         const charDiv = document.createElement('div');
-        charDiv.textContent = `${hiragana} (${romaji})`;
+        charDiv.textContent = `${hiragana}`;
         charDiv.style.cursor = 'pointer';
 
         charDiv.onclick = () => copyToClipboard(hiragana);
