@@ -54,17 +54,7 @@
       </div>
     </div>
     <div class="container" id="hiragana-container"></div>
-    <div class="container">
-      <h1>Katakana</h1>
-      <div class="message" id="message"></div>
-      <div class="list">
-        <!-- Katakana -->
-        <div class="item" onclick="copyToClipboard('ア')">ア</div>
-        <div class="item" onclick="copyToClipboard('イ')">イ</div>
-        <div class="item" onclick="copyToClipboard('ウ')">ウ</div>
-        <div class="item" onclick="copyToClipboard('エ')">エ</div>
-        <div class="item" onclick="copyToClipboard('オ')">オ</div>
-      </div>
+    <div class="container" id="katakana-container"></div>
     </div>
   </main>
   <div id="footer"></div>
@@ -92,7 +82,29 @@
       });
       container.appendChild(section);
     }
+    
+    async function loadKatakana() {
+      const response = await fetch('public/json/katakana.json');
+      const data = await response.json();
 
+      const container = document.getElementById('katakana-container');
+      const title = document.createElement('h1');
+      title.textContent = "Hiragana";
+      container.appendChild(title);
+      const section = document.createElement('div');
+      section.classList.add('list');
+
+      data.basic.forEach(({ hiragana, romaji }) => {
+        const charDiv = document.createElement('div');
+        charDiv.textContent = `${hiragana}`;
+        charDiv.style.cursor = 'pointer';
+
+        charDiv.onclick = () => copyToClipboard(hiragana);
+        charDiv.classList.add('item');
+        section.appendChild(charDiv);
+      });
+      container.appendChild(section);
+    }
     function copyToClipboard(str) {
       navigator.clipboard.writeText(str).then(() => {
         const message = document.getElementById('message');
@@ -101,6 +113,7 @@
       });
     }
     loadHiragana();
+    loadKatakana();
   </script>
 </body>
 </html>
