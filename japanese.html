@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JoshuaTrinh - japanese</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="public/styles.css">
+  <script src="include.js" defer></script>
+  <style>
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .item {
+      padding: 10px;
+      color: white;
+      background-color: #8e44ad;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .item:hover {
+      background-color: #9b59b6;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 16px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+  <main>
+    <div class="container">
+      <h1>japanese Hiragana & Katakana</h1>
+      <p>Click a character to copy it to your clipboard.</p>
+    </div>
+    <div class="container">
+      <h1>Hiragana</h1>
+      <div class="message" id="message"></div>
+      <div class="list">
+        <!-- Hiragana -->
+        <div class="item" onclick="copyToClipboard('あ')">あ</div>
+        <div class="item" onclick="copyToClipboard('い')">い</div>
+        <div class="item" onclick="copyToClipboard('う')">う</div>
+        <div class="item" onclick="copyToClipboard('え')">え</div>
+        <div class="item" onclick="copyToClipboard('お')">お</div>
+      </div>
+    </div>
+    <div class="container">
+      <h1>Katakana</h1>
+      <div class="message" id="message"></div>
+      <div class="list">
+        <!-- Katakana -->
+        <div class="item" onclick="copyToClipboard('ア')">ア</div>
+        <div class="item" onclick="copyToClipboard('イ')">イ</div>
+        <div class="item" onclick="copyToClipboard('ウ')">ウ</div>
+        <div class="item" onclick="copyToClipboard('エ')">エ</div>
+        <div class="item" onclick="copyToClipboard('オ')">オ</div>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
+
+  <script>
+    function copyToClipboard(str) {
+      navigator.clipboard.writeText(str).then(() => {
+        const message = document.getElementById('message');
+        message.textContent = `${str} copied to clipboard!`;
+        setTimeout(() => message.textContent = '', 2000);
+      });
+    }
+  </script>
+</body>
+</html>
