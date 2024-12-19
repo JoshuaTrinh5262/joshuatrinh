@@ -68,6 +68,33 @@
         charDiv.classList.add('item');
         section.appendChild(charDiv);
       });
+      data.dakuten.forEach(({ hiragana, romaji }) => {
+        const charDiv = document.createElement('div');
+        charDiv.textContent = `${hiragana}`;
+        charDiv.style.cursor = 'pointer';
+
+        charDiv.onclick = () => copyToClipboard(hiragana);
+        charDiv.classList.add('item');
+        section.appendChild(charDiv);
+      });
+      data.handakuten.forEach(({ hiragana, romaji }) => {
+        const charDiv = document.createElement('div');
+        charDiv.textContent = `${hiragana}`;
+        charDiv.style.cursor = 'pointer';
+
+        charDiv.onclick = () => copyToClipboard(hiragana);
+        charDiv.classList.add('item');
+        section.appendChild(charDiv);
+      });
+      data.combinations.forEach(({ hiragana, romaji }) => {
+        const charDiv = document.createElement('div');
+        charDiv.textContent = `${hiragana}`;
+        charDiv.style.cursor = 'pointer';
+
+        charDiv.onclick = () => copyToClipboard(hiragana);
+        charDiv.classList.add('item');
+        section.appendChild(charDiv);
+      });
       container.appendChild(section);
     }
     
