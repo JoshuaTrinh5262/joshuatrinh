@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Embed YouTube Video</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="public/styles.css">
+  <script src="include.js" defer></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -29,14 +32,20 @@
   </style>
 </head>
 <body>
-  <h1>Embedded YouTube Video</h1>
-  <div class="video-container">
-    <iframe 
-      src="https://www.youtube.com/embed/-44XtcqROKg" 
-      title="YouTube video player" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen>
-    </iframe>
-  </div>
+  <div id="header"></div>
+  <main>
+    <div class="container">
+      <h1>Embed YouTube Video</h1>
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/-44XtcqROKg" 
+          title="YouTube video player" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </main>
+  <div id="footer"></div>
 </body>
 </html>
