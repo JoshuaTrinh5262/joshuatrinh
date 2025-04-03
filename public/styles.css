@@ -59,15 +59,18 @@ header nav a:hover {
   list-style: none;
 }
 
+.navbar .nav-links .nav-item {
+  padding: 10px;
+}
+
+.navbar .nav-links .nav-item:hover {
+  background-color: #555;
+}
+
 .navbar .nav-links a {
   text-decoration: none;
   color: white;
   font-size: 1rem;
-  padding: 10px;
-}
-
-.navbar .nav-links a:hover {
-  background-color: #555;
 }
 
 .menu-toggle {
