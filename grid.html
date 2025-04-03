@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Grid Background</title>
+    <title>Red Interactive Grid</title>
     <style>
         * {
             margin: 0;
@@ -30,13 +30,14 @@
         }
 
         .cell {
-            background-color: #222;
-            transition: background-color 0.2s ease-in-out;
+            background-color: #440000;
+            transition: background-color 0.5s ease-out; /* Slow fade-out */
         }
 
         .cell.active {
-            background-color: #4caf50;
-            box-shadow: 0 0 10px #4caf50;
+            background-color: #ff0000;
+            box-shadow: 0 0 15px #ff0000;
+            transition: background-color 0.1s ease-in; /* Fast hover effect */
         }
     </style>
 </head>
@@ -63,11 +64,15 @@
             const index = y * 20 + x;
 
             cells.forEach((cell, i) => {
-                cell.classList.toggle("active", i === index);
+                if (i === index) {
+                    cell.classList.add("active");
+                } else {
+                    cell.classList.remove("active");
+                }
             });
         });
 
-        // Optional: Remove highlight after moving away
+        // Optional: Remove all highlights when leaving the grid
         grid.addEventListener("mouseleave", () => {
             cells.forEach(cell => cell.classList.remove("active"));
         });
