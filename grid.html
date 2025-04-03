@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Interactive Grid</title>
+    <title>Full-Screen Grid Hover</title>
     <style>
         * {
             margin: 0;
@@ -16,27 +16,26 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            width: 100vw;
             background-color: #111;
             overflow: hidden;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(20, 1fr);
-            grid-template-rows: repeat(20, 1fr);
-            width: 80vw;
-            height: 80vh;
+            width: 100vw;
+            height: 100vh;
             gap: 1px;
         }
 
         .cell {
-            background-color: #440000;
+            background-color: #111; /* Dark background */
             transition: background-color 0.5s ease-out; /* Slow fade-out */
         }
 
         .cell.active {
-            background-color: #ff0000;
-            box-shadow: 0 0 15px #ff0000;
+            background-color: #ff0000; /* Bright red hover */
+            box-shadow: 0 0 10px #ff0000;
             transition: background-color 0.1s ease-in; /* Fast hover effect */
         }
     </style>
@@ -48,8 +47,15 @@
     <script>
         const grid = document.querySelector(".grid");
 
-        // Create 20x20 grid (400 cells)
-        for (let i = 0; i < 400; i++) {
+        // Set grid size dynamically based on screen resolution
+        const cols = Math.floor(window.innerWidth / 30); // Each cell ~30px
+        const rows = Math.floor(window.innerHeight / 30);
+        grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+        grid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+
+        // Create grid cells
+        const totalCells = cols * rows;
+        for (let i = 0; i < totalCells; i++) {
             let cell = document.createElement("div");
             cell.classList.add("cell");
             grid.appendChild(cell);
@@ -59,9 +65,9 @@
 
         grid.addEventListener("mousemove", (e) => {
             const rect = grid.getBoundingClientRect();
-            const x = Math.floor(((e.clientX - rect.left) / rect.width) * 20);
-            const y = Math.floor(((e.clientY - rect.top) / rect.height) * 20);
-            const index = y * 20 + x;
+            const x = Math.floor(((e.clientX - rect.left) / rect.width) * cols);
+            const y = Math.floor(((e.clientY - rect.top) / rect.height) * rows);
+            const index = y * cols + x;
 
             cells.forEach((cell, i) => {
                 if (i === index) {
@@ -72,10 +78,13 @@
             });
         });
 
-        // Optional: Remove all highlights when leaving the grid
+        // Remove highlight when leaving the grid
         grid.addEventListener("mouseleave", () => {
             cells.forEach(cell => cell.classList.remove("active"));
         });
+
+        // Resize grid dynamically when window resizes
+        window.addEventListener("resize", () => location.reload());
     </script>
 
 </body>
