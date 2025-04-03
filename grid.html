@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pure CSS Grid Hover</title>
+    <title>Full-Screen Grid Hover</title>
     <style>
         * {
             margin: 0;
@@ -25,30 +25,65 @@
             display: grid;
             width: 100vw;
             height: 100vh;
-            grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
-            grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
         }
 
         .cell {
             background-color: #111; /* Dark background */
-            border: 1px solid #222; /* Visible grid */
-            transition: background-color 0.5s ease-out;
+            border: 1px solid #222; /* Add border to each cell */
+            transition: background-color 0.5s ease-out; /* Slow fade-out */
         }
 
-        .cell:hover {
-            background-color: #ff0000; /* Red hover */
+        .cell.active {
+            background-color: #ff0000; /* Bright red hover */
         }
     </style>
 </head>
 <body>
 
-    <div class="grid">
-        <!-- Create many divs for the grid -->
-        <script>
-            // Generate grid cells in pure HTML
-            document.write('<div class="cell"></div>'.repeat(1000)); 
-        </script>
-    </div>
+    <div class="grid"></div>
+
+    <script>
+        const grid = document.querySelector(".grid");
+
+        // Set grid size dynamically based on screen resolution
+        const cols = Math.floor(window.innerWidth / 30); // Each cell ~30px
+        const rows = Math.floor(window.innerHeight / 30);
+        grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+        grid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+
+        // Create grid cells
+        const totalCells = cols * rows;
+        for (let i = 0; i < totalCells; i++) {
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+            grid.appendChild(cell);
+        }
+
+        const cells = document.querySelectorAll(".cell");
+
+        grid.addEventListener("mousemove", (e) => {
+            const rect = grid.getBoundingClientRect();
+            const x = Math.floor(((e.clientX - rect.left) / rect.width) * cols);
+            const y = Math.floor(((e.clientY - rect.top) / rect.height) * rows);
+            const index = y * cols + x;
+
+            cells.forEach((cell, i) => {
+                if (i === index) {
+                    cell.classList.add("active");
+                } else {
+                    cell.classList.remove("active");
+                }
+            });
+        });
+
+        // Remove highlight when leaving the grid
+        grid.addEventListener("mouseleave", () => {
+            cells.forEach(cell => cell.classList.remove("active"));
+        });
+
+        // Resize grid dynamically when window resizes
+        window.addEventListener("resize", () => location.reload());
+    </script>
 
 </body>
 </html>
