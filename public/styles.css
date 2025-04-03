@@ -112,7 +112,6 @@ header nav a:hover {
       top: 44px;
       right: 0;
       width: 200px;
-      border-radius: 5px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
 
@@ -136,6 +135,7 @@ a.button {
     margin-top: 20px;
     padding: 10px 20px;
     background-color: var(--primary-color); /* Darker red for button */
+    color: var(--text-color);
     border-radius: 4px;
     text-decoration: none;
 }
