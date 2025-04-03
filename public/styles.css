@@ -1,3 +1,7 @@
+:root {
+    --primary-color: #ff0000;
+}
+
 /* Resetting styles for consistency */
 * {
     padding: 0;
@@ -20,7 +24,7 @@ body {
 header {
     width: 100%;
     padding: 0 10px 0 10px;
-    background-color: #ff0000; /* Red background */
+    background-color: var(--primary-color); /* Red background */
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -103,7 +107,7 @@ header nav a:hover {
   .navbar .nav-links.active {
       display: flex; /* Show menu when toggled */
       flex-direction: column;
-      background-color: #ff0000;
+      background-color: var(--primary-color);
       position: absolute;
       top: 44px;
       right: 0;
@@ -140,7 +144,7 @@ a.button {
     margin-top: 20px;
     padding: 10px 20px;
     color: #fff;
-    background-color: #cc0000; /* Darker red for button */
+    background-color: var(--primary-color); /* Darker red for button */
     border-radius: 4px;
     text-decoration: none;
 }
@@ -153,7 +157,7 @@ a.button:hover {
 footer {
     width: 100%;
     padding: 10px 20px;
-    background-color: #990000; /* Red background */
+    background-color: var(--primary-color); /* Red background */
     color: #fff;
     text-align: center;
     position: absolute;
