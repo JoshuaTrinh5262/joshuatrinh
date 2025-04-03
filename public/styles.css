@@ -1,5 +1,7 @@
 :root {
     --primary-color: #ff0000;
+    --primary-color-hover: #a80000;
+    --text-color: #fff;
 }
 
 /* Resetting styles for consistency */
@@ -17,7 +19,7 @@ body {
     min-height: 100vh;
     margin: 0;
     background-color: #1a1a1a; /* Dark background */
-    color: #fff;
+    color: var(--text-color);
 }
 
 /* Header styling */
@@ -25,7 +27,6 @@ header {
     width: 100%;
     padding: 0 10px 0 10px;
     background-color: var(--primary-color); /* Red background */
-    color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,7 +37,6 @@ header h1 {
 }
 
 header nav a {
-    color: #fff;
     text-decoration: none;
     margin: 0 10px;
 }
@@ -68,7 +68,7 @@ header nav a:hover {
 }
 
 .navbar .nav-links .nav-item:hover {
-  background-color: #555;
+  background-color: var(--primary-color-hover);
 }
 
 .navbar .nav-links a {
@@ -97,7 +97,7 @@ header nav a:hover {
   }
 
   .menu-toggle:hover {
-    background-color: #555;
+    background-color: var(--primary-color-hover);
   }
 
   .navbar .nav-links {
@@ -131,26 +131,17 @@ header nav a:hover {
     margin: 10px;
 }
 
-.container h2 {
-    color: #fff;
-}
-
-.container p {
-    color: #bbb;
-}
-
 a.button {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    color: #fff;
     background-color: var(--primary-color); /* Darker red for button */
     border-radius: 4px;
     text-decoration: none;
 }
 
 a.button:hover {
-    background-color: #a80000;
+    background-color: var(--primary-color-hover);
 }
 
 /* Footer styling */
@@ -158,7 +149,6 @@ footer {
     width: 100%;
     padding: 10px 20px;
     background-color: var(--primary-color); /* Red background */
-    color: #fff;
     text-align: center;
     position: absolute;
     z-index: -1;
