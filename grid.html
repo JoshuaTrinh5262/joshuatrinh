@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Grid Background</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #111;
+            overflow: hidden;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(20, 1fr);
+            grid-template-rows: repeat(20, 1fr);
+            width: 80vw;
+            height: 80vh;
+            gap: 1px;
+        }
+
+        .cell {
+            background-color: #222;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .cell.active {
+            background-color: #4caf50;
+            box-shadow: 0 0 10px #4caf50;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid"></div>
+
+    <script>
+        const grid = document.querySelector(".grid");
+
+        // Create 20x20 grid (400 cells)
+        for (let i = 0; i < 400; i++) {
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+            grid.appendChild(cell);
+        }
+
+        const cells = document.querySelectorAll(".cell");
+
+        grid.addEventListener("mousemove", (e) => {
+            const rect = grid.getBoundingClientRect();
+            const x = Math.floor(((e.clientX - rect.left) / rect.width) * 20);
+            const y = Math.floor(((e.clientY - rect.top) / rect.height) * 20);
+            const index = y * 20 + x;
+
+            cells.forEach((cell, i) => {
+                cell.classList.toggle("active", i === index);
+            });
+        });
+
+        // Optional: Remove highlight after moving away
+        grid.addEventListener("mouseleave", () => {
+            cells.forEach(cell => cell.classList.remove("active"));
+        });
+    </script>
+
+</body>
+</html>
