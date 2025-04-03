@@ -19,7 +19,7 @@ body {
 /* Header styling */
 header {
     width: 100%;
-    padding: 10px 0 10px 0;
+    padding: 0 10px 0 10px;
     background-color: #990000; /* Red background */
     color: #fff;
     display: flex;
