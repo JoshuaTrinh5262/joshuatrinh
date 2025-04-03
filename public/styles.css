@@ -20,7 +20,7 @@ body {
 header {
     width: 100%;
     padding: 0 10px 0 10px;
-    background-color: #990000; /* Red background */
+    background-color: #ff0000; /* Red background */
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -103,14 +103,13 @@ header nav a:hover {
   .navbar .nav-links.active {
       display: flex; /* Show menu when toggled */
       flex-direction: column;
-      background-color: #444;
+      background-color: #ff0000;
       position: absolute;
-      top: 50px;
-      right: 20px;
-      width: 150px;
+      top: 44px;
+      right: 0;
+      width: 200px;
       border-radius: 5px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      padding: 10px;
   }
 
   .navbar .nav-links a {
