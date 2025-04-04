@@ -86,6 +86,39 @@ header nav a:hover {
   cursor: pointer;
 }
 
+/* Dropdown Styles */
+.navbar .dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    list-style: none;
+    padding: 0;
+    min-width: 150px;
+}
+
+.navbar .dropdown-menu li {
+    border-bottom: 1px solid #555;
+}
+
+.navbar .dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.navbar .dropdown-menu a {
+    padding: 10px;
+    color: white;
+    display: block;
+}
+
+/* Show dropdown on hover */
+.navbar .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .menu-toggle {
